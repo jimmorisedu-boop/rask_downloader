@@ -1,0 +1,13 @@
+{
+  "comment": "Версии npm-пакетов, из которых собран vendor/. Меняются только вместе с vendor/CHECKSUMS.txt (npm run vendor:build).",
+  "packages": {
+    "@ffmpeg/ffmpeg": "0.12.15",
+    "@ffmpeg/core": "0.12.10"
+  },
+  "files": [
+    { "from": "@ffmpeg/ffmpeg/dist/umd/ffmpeg.js", "to": "ffmpeg.js" },
+    { "from": "@ffmpeg/ffmpeg/dist/umd/814.ffmpeg.js", "to": "814.ffmpeg.js" },
+    { "from": "@ffmpeg/core/dist/umd/ffmpeg-core.js", "to": "ffmpeg-core.js" },
+    { "from": "@ffmpeg/core/dist/umd/ffmpeg-core.wasm", "to": "ffmpeg-core.wasm" }
+  ]
+}
