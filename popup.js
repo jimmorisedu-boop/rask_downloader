@@ -4,7 +4,9 @@
   const el = document.getElementById('status');
   try {
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-    const onRask = tab && tab.url && tab.url.startsWith('https://app.rask.ai/');
+    // tab.url виден без разрешения "tabs" только потому, что у расширения есть
+    // host_permissions на этот адрес; для чужих вкладок здесь будет undefined.
+    const onRask = !!(tab && tab.url && tab.url.startsWith(RASK.ALLOWED_ORIGIN + '/'));
     if (onRask) {
       el.textContent = 'Вкладка Rask открыта — панель должна быть справа внизу.';
       el.classList.add('on');

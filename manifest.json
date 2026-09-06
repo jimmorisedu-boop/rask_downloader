@@ -1,8 +1,11 @@
 {
   "manifest_version": 3,
   "name": "Rask Downloader — Original video + Localized audio",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Кнопка скачивания на app.rask.ai: видеодорожка берётся из Original, аудиодорожка — из Localized, склейка без перекодирования.",
+  "author": "jimmorisedu-boop",
+  "homepage_url": "https://github.com/jimmorisedu-boop/rask_downloader",
+  "minimum_chrome_version": "102",
   "permissions": ["downloads", "storage"],
   "host_permissions": ["https://app.rask.ai/*"],
   "background": { "service_worker": "background.js" },
@@ -15,7 +18,7 @@
   "content_scripts": [
     {
       "matches": ["https://app.rask.ai/*"],
-      "js": ["content.js"],
+      "js": ["common.js", "content.js"],
       "run_at": "document_idle",
       "all_frames": false
     }
