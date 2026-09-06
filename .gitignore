@@ -1,0 +1,10 @@
+# npm — vendor/ уже содержит собранные файлы, зависимости в репозитории не нужны
+node_modules/
+package.json
+package-lock.json
+
+# собранные архивы для передачи
+*.zip
+
+.DS_Store
+Thumbs.db

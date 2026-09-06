@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<style>
+  :root { color-scheme: dark; }
+  body {
+    width: 300px; margin: 0; padding: 16px; background: #17161c; color: #ece9f5;
+    font: 13px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  h1 { font-size: 14px; margin: 0 0 10px; }
+  p { margin: 0 0 10px; color: #a9a4b8; font-size: 12.5px; }
+  ol { margin: 0 0 12px; padding-left: 18px; color: #a9a4b8; font-size: 12.5px; }
+  li { margin-bottom: 4px; }
+  b { color: #ece9f5; font-weight: 600; }
+  .status { font-size: 12px; padding: 8px 10px; border-radius: 8px; background: #201e2a; color: #9b96ab; }
+  .status.on { color: #7ee2a8; }
+  a { color: #9b83ff; }
+</style>
+</head>
+<body>
+  <h1>Rask Downloader</h1>
+  <p>Собирает MP4 из двух дорожек: <b>картинка из Original</b>, <b>звук из Localized</b>. Видео не перекодируется.</p>
+  <ol>
+    <li>Открой страницу проекта на app.rask.ai</li>
+    <li>Нажми <b>Скачать видео</b> в панели справа внизу</li>
+    <li>Склейка идёт в отдельной вкладке</li>
+  </ol>
+  <div class="status" id="status">Проверяю вкладку…</div>
+  <script src="popup.js"></script>
+</body>
+</html>

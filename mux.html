@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Rask Downloader</title>
+<style>
+  :root { color-scheme: dark; }
+  body {
+    margin: 0; min-height: 100vh; background: #0f0e13; color: #ece9f5;
+    font: 14px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif;
+    display: flex; justify-content: center; padding: 48px 20px;
+  }
+  .card { width: 100%; max-width: 560px; }
+  h1 { font-size: 19px; margin: 0 0 4px; font-weight: 650; }
+  .sub { color: #8e8a9e; font-size: 13px; margin: 0 0 26px; }
+  .steps { list-style: none; margin: 0 0 22px; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+  .steps li {
+    display: grid; grid-template-columns: 22px 1fr auto; align-items: center;
+    gap: 10px; padding: 9px 10px; border-radius: 9px; color: #6f6b7d;
+  }
+  .steps li.active { background: #191822; color: #ece9f5; }
+  .steps li.done { color: #9b96ab; }
+  .steps li.fail { color: #ff8c8c; }
+  .dot { width: 16px; height: 16px; }
+  .meta { font-variant-numeric: tabular-nums; font-size: 12px; color: #7d7890; }
+  .bar { height: 5px; border-radius: 99px; background: #232130; overflow: hidden; margin-bottom: 22px; }
+  .bar > i { display: block; height: 100%; width: 0; background: #6c4cf1; transition: width .25s; }
+  .result { display: none; flex-direction: column; gap: 12px; }
+  .result.show { display: flex; }
+  .ok { color: #7ee2a8; font-weight: 600; }
+  .err {
+    color: #ff9b9b; background: #2a1a1f; border: 1px solid #4a2630;
+    border-radius: 10px; padding: 12px 14px; white-space: pre-wrap; font-size: 13px;
+  }
+  button {
+    all: unset; cursor: pointer; text-align: center; background: #6c4cf1; color: #fff;
+    border-radius: 9px; padding: 10px 16px; font-weight: 600; font-size: 13px; align-self: flex-start;
+  }
+  button:hover { background: #7d61f5; }
+  details { margin-top: 26px; }
+  summary { cursor: pointer; color: #6f6b7d; font-size: 12px; }
+  pre {
+    max-height: 260px; overflow: auto; background: #141320; border: 1px solid #232130;
+    border-radius: 9px; padding: 12px; font-size: 11.5px; line-height: 1.45; color: #9b96ab;
+    white-space: pre-wrap; word-break: break-word;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>Rask Downloader</h1>
+    <p class="sub" id="sub">Видео из Original, звук из Localized</p>
+
+    <div class="bar"><i id="bar"></i></div>
+
+    <ul class="steps" id="steps"></ul>
+
+    <div class="result" id="result"></div>
+
+    <details>
+      <summary>Лог ffmpeg</summary>
+      <pre id="log"></pre>
+    </details>
+  </div>
+
+  <script src="vendor/ffmpeg.js"></script>
+  <script src="mux.js"></script>
+</body>
+</html>
